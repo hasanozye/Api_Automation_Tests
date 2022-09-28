@@ -26,7 +26,7 @@ public class _04_TestWithParametre {
 
         assertEquals(response.statusCode(), 200);
         assertEquals(response.contentType(), "application/json");
-        assertTrue(response.body().asString().contains("doggi"));
+        assertTrue(response.body().asString().contains("doggie"));
 
 
     }
