@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utilities.ConfigurationReader;
+
 import static io.restassured.RestAssured.*;
 import static io.restassured.RestAssured.baseURI;
 
@@ -18,15 +19,15 @@ public class _08_getAllEmployeeWithJsonPath {
     }
 
     @Test
-    public void getAllEmployeeWithJsonPath(){
+    public void getAllEmployeeWithJsonPath() {
         Response response = given().header("Authorization", accessToken)
-                .and().queryParam("size",50)
+                .and().queryParam("size", 50)
                 .when().get("/api/employees");
         JsonPath jsonPath = response.jsonPath();
 
         String items = jsonPath.getString("items");
-        String  ids = jsonPath.getString("items.id");
-        int  firstEmployeeId = jsonPath.getInt("items.id[0]");
+        String ids = jsonPath.getString("items.id");
+        int firstEmployeeId = jsonPath.getInt("items.id[0]");
         String lastName = jsonPath.getString("items.lastName");
         long firstEmployeePhone = jsonPath.getLong("items.phone[0]");
         String phone = jsonPath.getString("items.phone");
