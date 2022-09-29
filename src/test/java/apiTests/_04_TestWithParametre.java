@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import static org.testng.Assert.*;
 
 import org.testng.annotations.Test;
+import utilities.ConfigurationReader;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +15,7 @@ import static io.restassured.RestAssured.*;
 public class _04_TestWithParametre {
     String sprinGularURL = "http://142.93.110.12:9119";
     String petStoreURL = "https://petstore.swagger.io/v2";
-    String accessToken = "Bearer " +
-            "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NjM5NjM4NjAsInN1YiI6Ik1yaW5tb3lNYWp1bWRhciIsInVzZXJJZCI6Imd1aWRlcnNvZnQiLCJyb2xlIjoiVVNFUiJ9.RaL5o0kjm2YdtXUBOLW7B_R0_g0ilL2M2u5DLZldFhw";
+    String accessToken = ConfigurationReader.get("accessTokenSpringGular");
 
     @Test
     public void getPetStore_Positive() {
